@@ -11,17 +11,10 @@ def test(letters):
     # Returns the number of occurrences of each letter in letters
     checkerDict = combLetters(letters)
 
-    # Contains the return list for the printout
-    returnList = []
-
-    # If the word in new_words is longer than 7 and the word contains all valid chars, append to returnList
-    for word in new_words:
-        word = word.replace('\n', '')
-        # Checks if the length of the word is equal to 7
-        if len(word) == 7:
-            if checker(word, checkerDict):
-                returnList.append(word)
-    print(returnList)
+    # create a list of letters that are 7 in length, then use that list to call function checker which will return True if
+    # the word passes the criteria or validation for the project. Join all these words using the .join function to print
+    # out into the console
+    print(', '.join([x for x in [x.replace('\n', '') for x in new_words if len(x.replace('\n', '')) == 7] if checker(x, checkerDict)]))
 
 
 def checker(word, checkerDict):
