@@ -28,7 +28,7 @@ def checker(word, checkerDict):
     """
     for letter in word:
         try:
-            if word.lower().count(letter) > checkerDict[letter]:
+            if word.lower().count(letter.lower()) > checkerDict[letter.lower()]:
                 return False
         except KeyError:
             return False
@@ -50,4 +50,4 @@ def combLetters(letters):
                 retDict[letter] = 1
     return retDict
 
-test(("pbcdefg",  "aedofg", "agog", "plenty"))
+test(("zymomin" "omixa"))
