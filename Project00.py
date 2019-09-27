@@ -1,5 +1,3 @@
-import unittest
-
 
 def test(letters):
     """
@@ -17,7 +15,6 @@ def test(letters):
     # the word passes the criteria or validation for the project. Join all these words using the .join function to print
     # out into the console
     print(', '.join([x for x in [x.replace('\n', '') for x in new_words if len(x.replace('\n', '')) == 7] if checker(x, checkerDict)]))
-    return ', '.join([x for x in [x.replace('\n', '') for x in new_words if len(x.replace('\n', '')) == 7] if checker(x, checkerDict)])
 
 
 def checker(word, checkerDict):
@@ -54,9 +51,4 @@ def combLetters(letters):
     return retDict
 
 
-def tester(string1):
-    t1 = test(string1)
-    assert t1 == 'azimino, mammoni, maximin, Maximon, minimax, Monimia, Monomya, zymomin'
-
 test(("zymomin" "omixa"))
-tester(("zymomin" "omixa"))
