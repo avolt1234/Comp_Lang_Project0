@@ -2,7 +2,21 @@ import unittest
 
 
 """
+Student: Alexander Voultos
+Class: CS-3180-01
 
+CONTRACT: find-words : letters -> String
+   PURPOSE: Returns a string of comma delimited dictionary words 7
+   letters long and in alphabetical order that can be composed of
+   characters in letters. (anagrams of letters) There is no trailing
+   comma after the last word in the returned string.
+   Each letter in letters may only be used once per match, e.g.
+   (find-words '("zymomin" "am")) could return "mammoni, zymomin"
+   because "mammoni" is composed of letters in letters including the
+   three 'm' characters in letters, and "zymomin" is similarly composed of
+   letters in letters. However, "mammomi" could not be
+   returned because "mammomi" requires four 'm' characters and
+   only three are available in letters
 """
 
 def test(letters):
@@ -35,7 +49,9 @@ def checker(word, checkerDict):
     """
     for letter in word:
         try:
+            # Checks for the total number of characters in the letter vs parameters
             if word.lower().count(letter.lower()) > checkerDict[letter.lower()]:
+                # If the word count is greater than parameter, return False which means the word did not pass validation
                 return False
         except KeyError:
             return False
@@ -50,23 +66,18 @@ def combLetters(letters):
     """
     retDict = {}
     for item in letters:
+        # Parse through the characters in the String
         for letter in item:
+            # If the character is a key in the dictionary, append the item in the dict by 1
             try:
                 retDict[letter] += 1
+            # If the character is not a key in the dictionary, create one and set the item to 1
             except KeyError:
                 retDict[letter] = 1
     return retDict
 
-# class to run test harness for Project 1
-class Project1Testing(unittest.TestCase):
-
-    def test1(self):
-        self.assertEqual(test(("zymomin" "omixa")), "azimino, mammoni, maximin, maximon, minimax, monimia, monomya, zymomin", "Test1 Passed")
-
 # Call the test function
-#test(("zymomin" "omixa"))
+test(("zymomin" "omixa"))
 
-# Call the testing function for test
-unittest.main()
 
 
