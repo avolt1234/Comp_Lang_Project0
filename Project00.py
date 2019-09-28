@@ -1,3 +1,9 @@
+import unittest
+
+
+"""
+
+"""
 
 def test(letters):
     """
@@ -14,7 +20,8 @@ def test(letters):
     # create a list of letters that are 7 in length, then use that list to call function checker which will return True if
     # the word passes the criteria or validation for the project. Join all these words using the .join function to print
     # out into the console
-    print(', '.join([x for x in [x.replace('\n', '') for x in new_words if len(x.replace('\n', '')) == 7] if checker(x, checkerDict)]))
+    print(', '.join([x.lower() for x in [x.replace('\n', '') for x in new_words if len(x.replace('\n', '')) == 7] if checker(x, checkerDict)]))
+    return ', '.join([x.lower() for x in [x.replace('\n', '') for x in new_words if len(x.replace('\n', '')) == 7] if checker(x, checkerDict)])
 
 
 def checker(word, checkerDict):
@@ -50,5 +57,16 @@ def combLetters(letters):
                 retDict[letter] = 1
     return retDict
 
+# class to run test harness for Project 1
+class Project1Testing(unittest.TestCase):
 
-test(("zymomin" "omixa"))
+    def test1(self):
+        self.assertEqual(test(("zymomin" "omixa")), "azimino, mammoni, maximin, maximon, minimax, monimia, monomya, zymomin", "Test1 Passed")
+
+# Call the test function
+#test(("zymomin" "omixa"))
+
+# Call the testing function for test
+unittest.main()
+
+
